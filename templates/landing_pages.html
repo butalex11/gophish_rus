@@ -1,12 +1,12 @@
 {{define "body"}}
 <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
     <h1 class="page-header">
-        Landing Pages
+        Лэндинг страницы
     </h1>
     <div id="flashes" class="row"></div>
     <div class="row">
         <button type="button" class="btn btn-primary" onclick="edit(-1)" data-toggle="modal" data-backdrop="static"
-            data-target="#modal"><i class="fa fa-plus"></i> New Page</button>
+            data-target="#modal"><i class="fa fa-plus"></i> Новая Страница</button>
     </div>
     &nbsp;
     <div id="loading">
@@ -14,15 +14,15 @@
     </div>
     <div id="emptyMessage" class="row" style="display:none;">
         <div class="alert alert-info">
-            No pages created yet. Let's create one!
+            Отсутствуют лендинг-страницы. Создайте первую!
         </div>
     </div>
     <div class="row">
         <table id="pagesTable" class="table" style="display:none;">
             <thead>
                 <tr>
-                    <th>Name</th>
-                    <th>Last Modified Date</th>
+                    <th>Название</th>
+                    <th>Дата последнего изменения</th>
                     <th class="col-md-2 no-sort"></th>
                 </tr>
             </thead>
@@ -39,18 +39,18 @@
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="dismiss()"><span
                         aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="modalLabel">New Landing Page</h4>
+                <h4 class="modal-title" id="modalLabel">Новая лендинг страница</h4>
             </div>
             <div class="modal-body">
                 <div class="row" id="modal.flashes"></div>
-                <label class="control-label" for="name">Name:</label>
+                <label class="control-label" for="name">Название:</label>
                 <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Page name" id="name" autofocus />
+                    <input type="text" class="form-control" placeholder="Название страницы" id="name" autofocus />
                 </div>
                 <div class="form-group">
                     <button class="btn btn-danger" data-toggle="modal" data-backdrop="static" data-target="#importSiteModal"><i
                             class="fa fa-globe"></i>
-                        Import Site</button>
+                        Импортировать сайт</button>
                 </div>
                 <!-- Nav tabs -->
                 <ul class="nav nav-tabs" role="tablist">
@@ -64,29 +64,29 @@
                 </div>
                 <div class="checkbox checkbox-primary">
                     <input id="capture_credentials_checkbox" type="checkbox">
-                    <label for="capture_credentials_checkbox">Capture Submitted Data <i class="fa fa-question-circle"
-                            data-toggle="tooltip" data-placement="right" title="If the landing page contains a form, submitted input (except passwords!) will be captured."></i></label>
+                    <label for="capture_credentials_checkbox">Сбор введенных данных <i class="fa fa-question-circle"
+                            data-toggle="tooltip" data-placement="right" title="Если целевая страница содержит форму, введенные данные (кроме паролей!) будут записаны."></i></label>
                 </div>
                 <div class="checkbox checkbox-primary" id="capture_passwords">
                     <input id="capture_passwords_checkbox" type="checkbox">
-                    <label for="capture_passwords_checkbox">Capture Passwords</label>
+                    <label for="capture_passwords_checkbox">Собирать пароли</label>
                     <div class="alert alert-warning">
-                        <i class="fa fa-exclamation-circle"></i> <b>Warning:</b> Credentials are currently <b>not
-                            encrypted</b>. This means that captured passwords are stored in the database as cleartext.
-                        Be careful with this!
+                        <i class="fa fa-exclamation-circle"></i> <b>Внимание:</b> Учетные данные <b>не
+                            шифруются</b>. Это означает, что собранные пароли хранятся в базе данных в открытом текстовом виде.
+                        Будьте осторожны!
                     </div>
                 </div>
                 <div id="redirect_url">
-                    <label class="control-label" for="redirect_url_input">Redirect to: <i class="fa fa-question-circle"
-                            data-toggle="tooltip" data-placement="right" title="This option lets you redirect the user to a page after credentials are submitted."></i></label>
+                    <label class="control-label" for="redirect_url_input">Перенаправление: <i class="fa fa-question-circle"
+                            data-toggle="tooltip" data-placement="right" title="Этот параметр позволяет перенаправить пользователя на указанную страницу после отправки учетных данных."></i></label>
                     <div class="form-group">
                         <input id="redirect_url_input" class="form-control" placeholder="http://example.com" />
                     </div>
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" data-dismiss="modal" class="btn btn-default" onclick="dismiss()">Cancel</button>
-                <button type="button" class="btn btn-primary" id="modalSubmit">Save Page</button>
+                <button type="button" data-dismiss="modal" class="btn btn-default" onclick="dismiss()">Отменить</button>
+                <button type="button" class="btn btn-primary" id="modalSubmit">Сохранить</button>
             </div>
         </div>
     </div>
@@ -98,7 +98,7 @@
             <!-- New Template Modal -->
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="importSiteModalLabel">Import Site</h4>
+                <h4 class="modal-title" id="importSiteModalLabel">Импортировать сайт</h4>
             </div>
             <div class="modal-body">
                 <div class="row" id="modal.flashes"></div>
@@ -108,8 +108,8 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" data-dismiss="modal" class="btn btn-default">Cancel</button>
-                <button type="button" class="btn btn-primary" id="modalSubmit" onclick="importSite()">Import</button>
+                <button type="button" data-dismiss="modal" class="btn btn-default">Отмена</button>
+                <button type="button" class="btn btn-primary" id="modalSubmit" onclick="importSite()">Импорт</button>
             </div>
         </div>
     </div>
