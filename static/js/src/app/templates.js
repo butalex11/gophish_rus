@@ -48,7 +48,7 @@ function save(idx) {
         template.id = templates[idx].id
         api.templateId.put(template)
             .success(function (data) {
-                successFlash("Template edited successfully!")
+                successFlash("Шаблон успешно изменен!")
                 load()
                 dismiss()
             })
@@ -59,7 +59,7 @@ function save(idx) {
         // Submit the template
         api.templates.post(template)
             .success(function (data) {
-                successFlash("Template added successfully!")
+                successFlash("Шаблон успешно добавлен!")
                 load()
                 dismiss()
             })
@@ -81,12 +81,12 @@ function dismiss() {
 
 var deleteTemplate = function (idx) {
     Swal.fire({
-        title: "Are you sure?",
-        text: "This will delete the template. This can't be undone!",
+        title: "Вы уверены?",
+        text: "Это приведет к удалению шаблона. Это необратимая операция!",
         type: "warning",
         animation: false,
         showCancelButton: true,
-        confirmButtonText: "Delete " + escapeHtml(templates[idx].name),
+        confirmButtonText: "Удалить " + escapeHtml(templates[idx].name),
         confirmButtonColor: "#428bca",
         reverseButtons: true,
         allowOutsideClick: false,
@@ -104,9 +104,9 @@ var deleteTemplate = function (idx) {
     }).then(function (result) {
         if(result.value) {
             Swal.fire(
-                'Template Deleted!',
-                'This template has been deleted!',
-                'success'
+                'Шаблон удален!',
+                'Этот шаблон был удален!',
+                'успешно'
             );
         }
         $('button:contains("OK")').on('click', function () {
@@ -116,7 +116,7 @@ var deleteTemplate = function (idx) {
 }
 
 function deleteTemplate(idx) {
-    if (confirm("Delete " + templates[idx].name + "?")) {
+    if (confirm("Удалить " + templates[idx].name + "?")) {
         api.templateId.delete(templates[idx].id)
             .success(function (data) {
                 successFlash(data.message)
@@ -187,7 +187,7 @@ function edit(idx) {
         attachments: []
     }
     if (idx != -1) {
-        $("#templateModalLabel").text("Edit Template")
+        $("#templateModalLabel").text("Редактировать шаблон")
         template = templates[idx]
         $("#name").val(template.name)
         $("#subject").val(template.subject)
@@ -214,7 +214,7 @@ function edit(idx) {
         }
 
     } else {
-        $("#templateModalLabel").text("New Template")
+        $("#templateModalLabel").text("Новый шаблон")
     }
     // Handle Deletion
     $("#attachmentsTable").unbind('click').on("click", "span>i.fa-trash-o", function () {
@@ -332,10 +332,10 @@ function load() {
                         "<div class='pull-right'><span data-toggle='modal' data-backdrop='static' data-target='#modal'><button class='btn btn-primary' data-toggle='tooltip' data-placement='left' title='Edit Template' onclick='edit(" + i + ")'>\
                     <i class='fa fa-pencil'></i>\
                     </button></span>\
-		    <span data-toggle='modal' data-target='#modal'><button class='btn btn-primary' data-toggle='tooltip' data-placement='left' title='Copy Template' onclick='copy(" + i + ")'>\
+		    <span data-toggle='modal' data-target='#modal'><button class='btn btn-primary' data-toggle='tooltip' data-placement='left' title='Копировать шаблон' onclick='copy(" + i + ")'>\
                     <i class='fa fa-copy'></i>\
                     </button></span>\
-                    <button class='btn btn-danger' data-toggle='tooltip' data-placement='left' title='Delete Template' onclick='deleteTemplate(" + i + ")'>\
+                    <button class='btn btn-danger' data-toggle='tooltip' data-placement='left' title='Удалить шаблон' onclick='deleteTemplate(" + i + ")'>\
                     <i class='fa fa-trash-o'></i>\
                     </button></div>"
                     ])
@@ -348,7 +348,7 @@ function load() {
         })
         .error(function () {
             $("#loading").hide()
-            errorFlash("Error fetching templates")
+            errorFlash("Ошибка при загрузке шаблонов")
         })
 }
 
