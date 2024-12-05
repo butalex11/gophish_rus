@@ -306,7 +306,7 @@ $(document).ready(function () {
             $this.addClass('active');
         }
     })
-    $.fn.dataTable.moment('MMMM Do YYYY, h:mm:ss a');
+    $.fn.dataTable.moment('DD.MM.YYYY, HH:mm:ss');
     // Setup tooltips
     $('[data-toggle="tooltip"]').tooltip()
 });
