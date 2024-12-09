@@ -376,9 +376,9 @@ function renderTimeline(data) {
         "send_date": data[8]
     }
     results = '<div class="timeline col-sm-12 well well-lg">' +
-        '<h6>Timeline for ' + escapeHtml(record.first_name) + ' ' + escapeHtml(record.last_name) +
+        '<h6>График для ' + escapeHtml(record.first_name) + ' ' + escapeHtml(record.last_name) +
         '</h6><span class="subtitle">Email: ' + escapeHtml(record.email) +
-        '<br>Result ID: ' + escapeHtml(record.id) + '</span>' +
+        '<br>ID результата: ' + escapeHtml(record.id) + '</span>' +
         '<div class="timeline-graph col-sm-6">'
     $.each(campaign.timeline, function (i, event) {
         if (!event.email || event.email == record.email) {
