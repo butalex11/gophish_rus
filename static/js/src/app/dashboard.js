@@ -1,7 +1,7 @@
 var campaigns = []
 // statuses is a helper map to point result statuses to ui classes
 var statuses = {
-    "Email Sent": {
+    "Отправлено писем": {
         color: "#1abc9c",
         label: "label-success",
         icon: "fa-envelope",
